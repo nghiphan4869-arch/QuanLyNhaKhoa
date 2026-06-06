@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:nhakhoa/Screen/TrangChu.dart';
+import 'package:nhakhoa/Screen/CaNhan.dart';
 
 class BottomNav extends StatelessWidget {
   final int currentIndex;
-  final Function(int)? onTap;
 
   const BottomNav({
     super.key,
     required this.currentIndex,
-    this.onTap,
   });
 
   @override
@@ -17,7 +17,56 @@ class BottomNav extends StatelessWidget {
       selectedItemColor: Colors.blue,
       unselectedItemColor: Colors.grey,
       type: BottomNavigationBarType.fixed,
-      onTap: onTap,
+
+      onTap: (index) {
+        switch (index) {
+          case 0:
+            // Navigator.pushReplacement(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (_) => const LichHen(),
+            //   ),
+            // );
+            break;
+
+          case 1:
+            // Navigator.pushReplacement(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (_) => const DieuTri(),
+            //   ),
+            // );
+            break;
+
+          case 2:
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const TrangChu(),
+              ),
+            );
+            break;
+
+          case 3:
+            // Navigator.pushReplacement(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (_) => const NhacLich(),
+            //   ),
+            // );
+            // break;
+
+          case 4:
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const CaNhan(),
+              ),
+            );
+            break;
+        }
+      },
+
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.event_note),

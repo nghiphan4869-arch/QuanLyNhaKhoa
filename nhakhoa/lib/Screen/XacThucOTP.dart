@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nhakhoa/Screen/DatLaiMatKhau.dart';
 
 class XacThucOTP extends StatelessWidget {
   const XacThucOTP({super.key});
@@ -187,7 +188,9 @@ class XacThucOTP extends StatelessWidget {
                                 12),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DatLaiMatKhau(),),);
+                    },
                     child: const Text(
                       "Xác nhận",
                       style: TextStyle(
