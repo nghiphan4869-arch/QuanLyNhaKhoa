@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nhakhoa/Screen/TrangChu.dart';
 import 'package:nhakhoa/Screen/CaNhan.dart';
+import 'package:nhakhoa/Screen/NhacLichHen.dart';
+import 'package:nhakhoa/Screen/DieuTri.dart';
 
 class BottomNav extends StatelessWidget {
   final int currentIndex;
@@ -30,12 +32,12 @@ class BottomNav extends StatelessWidget {
             break;
 
           case 1:
-            // Navigator.pushReplacement(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (_) => const DieuTri(),
-            //   ),
-            // );
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const DieuTri(),
+              ),
+            );
             break;
 
           case 2:
@@ -48,13 +50,13 @@ class BottomNav extends StatelessWidget {
             break;
 
           case 3:
-            // Navigator.pushReplacement(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (_) => const NhacLich(),
-            //   ),
-            // );
-            // break;
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const NhacLich(),
+              ),
+            );
+            break;
 
           case 4:
             Navigator.pushReplacement(

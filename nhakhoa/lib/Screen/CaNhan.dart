@@ -216,8 +216,7 @@ class CaNhan extends StatelessWidget {
                   child: ElevatedButton(
                     style:
                         ElevatedButton.styleFrom(
-                      backgroundColor:
-                          const Color(0xffe8bcbc),
+                      backgroundColor:Colors.red,
                       shape:
                           RoundedRectangleBorder(
                         borderRadius:
@@ -282,7 +281,7 @@ class CaNhan extends StatelessWidget {
                     child: const Text(
                       "Đăng xuất",
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.white,
                         fontSize: 16,
                         fontWeight:
                             FontWeight.bold,
