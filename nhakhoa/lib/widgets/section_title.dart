@@ -21,10 +21,6 @@ class SectionTitle extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        TextButton(
-          onPressed: () {},
-          child: const Text("Xem tất cả"),
-        )
       ],
     );
   }

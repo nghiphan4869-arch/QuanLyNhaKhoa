@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nhakhoa/Screen/NhacLichHen.dart';
 import '../widgets/bottom_nav.dart';
 import 'package:nhakhoa/Screen/Dangnhap.dart';
 
@@ -33,7 +34,9 @@ class CaNhan extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => NhacLich(),),);
+                      },
                       icon: const Icon(
                         Icons.notifications_none,
                       ),
@@ -194,7 +197,9 @@ class CaNhan extends StatelessWidget {
 
                 _buildMenuItem(
                   "Nhắc lịch hẹn",
-                  () {},
+                  () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => NhacLich(),),);
+                  },
                 ),
 
                 _buildMenuItem(

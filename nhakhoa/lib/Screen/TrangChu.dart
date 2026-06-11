@@ -33,11 +33,13 @@ class TrangChu extends StatelessWidget {
                 title: "Lịch hẹn",
               ),
 
+              const SizedBox(height: 15),
+
               Row(
                 children: [
                   MenuCard(
                     icon:
-                        Icons.add_box_outlined,
+                        Icons.event_available,
                     title: "Đặt lịch khám",
                     color:
                         const Color(0xffefe5f2),
@@ -51,7 +53,7 @@ class TrangChu extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   MenuCard(
-                    icon: Icons.cancel,
+                    icon: Icons.event_busy,
                     title: "Hủy lịch hẹn",
                     color:
                         const Color(0xffefe5f2),
@@ -65,6 +67,8 @@ class TrangChu extends StatelessWidget {
                 title: "Điều trị",
               ),
 
+              const SizedBox(height: 15),
+
               Row(
                 children: [
                   MenuCard(
@@ -77,7 +81,7 @@ class TrangChu extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   MenuCard(
-                    icon: Icons.receipt,
+                    icon: Icons.medication,
                     title: "Đơn thuốc",
                     color:
                         const Color(0xffdff0e6),
@@ -97,11 +101,13 @@ class TrangChu extends StatelessWidget {
                 title: "Phản hồi sức khỏe",
               ),
 
+              const SizedBox(height: 15),
+
               Row(
                 children: [
                   MenuCard(
                     icon:
-                        Icons.help_outline,
+                        Icons.feedback_outlined,
                     title:
                         "Phản hồi",
                     color:
@@ -109,7 +115,7 @@ class TrangChu extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   MenuCard(
-                    icon: Icons.sentiment_satisfied_alt,
+                    icon: Icons.health_and_safety_outlined,
                     title: "Cập nhật tình trạng",
                     color:
                         const Color(0xffefe5d8),

@@ -9,10 +9,15 @@ class DieuTri extends StatefulWidget {
   State<DieuTri> createState() => _DieuTriState();
 }
 
+
 class _DieuTriState extends State<DieuTri> {
+
 
   @override
   Widget build(BuildContext context) {
+
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: const Color(0xfff5f5f5),
 
@@ -35,10 +40,10 @@ class _DieuTriState extends State<DieuTri> {
                   mainAxisAlignment:
                       MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       "Điều trị",
                       style: TextStyle(
-                        fontSize: 34,
+                        fontSize: width * 0.08,
                         fontWeight:
                             FontWeight.bold,
                       ),
@@ -54,10 +59,11 @@ class _DieuTriState extends State<DieuTri> {
                   ],
                 ),
 
-                const Text(
+                Text(
                   "Theo dõi quá trình điều trị và kế hoạch của bạn",
                   style: TextStyle(
                     color: Colors.grey,
+                     fontSize: width * 0.035,
                   ),
                 ),
 
@@ -83,7 +89,7 @@ class _DieuTriState extends State<DieuTri> {
                               "Kế hoạch điều trị hiện tại",
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 12,
+                                fontSize: width * 0.03,
                               ),
                             ),
 
@@ -92,7 +98,7 @@ class _DieuTriState extends State<DieuTri> {
                             Text(
                               "Niềng răng chỉnh nha",
                               style: TextStyle(
-                                fontSize: 22,
+                                fontSize: width * 0.055,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -103,7 +109,7 @@ class _DieuTriState extends State<DieuTri> {
                               children: [
                                 Icon(
                                   Icons.calendar_month,
-                                  size: 18,
+                                  size:  width * 0.03,
                                   color: Colors.blue,
                                 ),
                                 SizedBox(width: 5),
@@ -132,17 +138,24 @@ class _DieuTriState extends State<DieuTri> {
                     children: [
                       TabBar(
                         labelColor: Colors.blue,
+                        labelStyle: TextStyle(
+                          fontSize: width * 0.035,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        unselectedLabelStyle: TextStyle(
+                          fontSize: width * 0.035,
+                        ),
                         unselectedLabelColor: Colors.grey,
                         indicatorColor: Colors.blue,
                         tabs: const [
                           Tab(text: "Tổng quan"),
                           Tab(text: "Lịch điều trị"),
-                          Tab(text: "Hồ sơ điều trị"),
+                          Tab(text: "Hồ sơ "),
                         ],
                       ),
 
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.62,
+                        height: MediaQuery.of(context).size.height * 0.7,
                         child: TabBarView(
                           children: [
                             _tongQuan(),
@@ -178,58 +191,56 @@ class _DieuTriState extends State<DieuTri> {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
+                color: Colors.black12,
+                blurRadius: 8,
               ),
             ],
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        height: 10,
-                        color: Colors.green,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        height: 10,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        height: 10,
-                        color: Colors.grey.shade300,
-                      ),
-                    ),
-                  ],
+              const Text(
+                "Tiến độ điều trị",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
 
-              SizedBox(height: 10),
+              const SizedBox(height: 12),
 
-              Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.spaceBetween,
-                children: const [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: LinearProgressIndicator(
+                  value: 0.6,
+                  minHeight: 10,
+                  backgroundColor: Colors.grey.shade300,
+                ),
+              ),
+
+              const SizedBox(height: 12),
+
+              const Text(
+                "60% hoàn thành",
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
                   Text("Chuẩn bị"),
                   Text("Đang điều trị"),
                   Text("Hoàn tất"),
                 ],
-              )
+              ),
             ],
-          )
+          ),
         ),
-
         const SizedBox(height: 15),
 
         Container(
@@ -250,15 +261,16 @@ class _DieuTriState extends State<DieuTri> {
                 width: 55,
                 height: 55,
                 decoration: BoxDecoration(
-                  color: Colors.blue.shade100,
+                  color: Colors.blue.shade50,
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: const Center(
+                child:  Center(
                   child: Text(
                     "28",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize:  20,
                       fontWeight: FontWeight.bold,
+                      color: Colors.blue.shade700,
                     ),
                   ),
                 ),
@@ -266,7 +278,7 @@ class _DieuTriState extends State<DieuTri> {
 
               const SizedBox(width: 15),
 
-              const Expanded(
+              Expanded(
                 child: Column(
                   crossAxisAlignment:
                       CrossAxisAlignment.start,
@@ -275,11 +287,17 @@ class _DieuTriState extends State<DieuTri> {
                       "15:30 - BS.ABC",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontSize: 15,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(
                       "Tái khám và điều chỉnh mắc cài",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
                     ),
                   ],
                 ),
@@ -294,9 +312,15 @@ class _DieuTriState extends State<DieuTri> {
           padding:
               const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius:
-                BorderRadius.circular(15),
+            color: const Color(0xfff8fbff),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
           child: Column(
             children: [
@@ -315,59 +339,74 @@ class _DieuTriState extends State<DieuTri> {
             ],
           ),
         ),
+
+        const SizedBox(width: 12),
+        const SizedBox(height: 15),
+
         Container(
-          padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius:
-                BorderRadius.circular(15),
-          ),
-          child: Row(
-            children: [
-              const CircleAvatar(
-                radius: 28,
-                child: Icon(Icons.person),
-              ),
-
-              const SizedBox(width: 12),
-
-              const Expanded(
-                child: Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "BS. ABC",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Chuyên khoa: chỉnh nha",
-                    ),
-                  ],
-                ),
-              ),
-
-              CircleAvatar(
-                backgroundColor: Colors.blue.shade100,
-                child: IconButton(
-                  icon: const Icon(Icons.message_outlined),
-                  onPressed: () {},
-                ),
-              ),
-
-              SizedBox(width: 8),
-
-              CircleAvatar(
-                backgroundColor:
-                    Colors.blue.shade50,
-                child: IconButton(
-                  icon: const Icon(Icons.phone),
-                  onPressed: () {},
-                ),
+            color: const Color(0xfff8fbff),
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 8,
+                offset: const Offset(0, 3),
               ),
             ],
+          ),
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.blue.shade100,
+              child: const Icon(
+                Icons.person,
+                color: Colors.blue,
+              ),
+            ),
+            title: const Text(
+              "BS. ABC",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: const Text(
+              "Chỉnh nha",
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircleAvatar(
+                  radius: 18,
+                  backgroundColor: Colors.blue.shade100,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    iconSize: 18,
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.message_outlined,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                CircleAvatar(
+                  radius: 18,
+                  backgroundColor: Colors.green.shade100,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    iconSize: 18,
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.phone,
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -405,9 +444,15 @@ class _DieuTriState extends State<DieuTri> {
           padding:
               const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius:
-                BorderRadius.circular(15),
+            color: const Color(0xfff8fbff),
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
           child: const Row(
             mainAxisAlignment:
@@ -458,115 +503,176 @@ class _DieuTriState extends State<DieuTri> {
 
         const SizedBox(height: 15),
 
-        ListTile(
-          tileColor:
-              const Color(0xfff7f7f7),
-          shape:
-              RoundedRectangleBorder(
-            borderRadius:
-                BorderRadius.circular(15),
-          ),
-          leading: const CircleAvatar(
-            child: Icon(Icons.person),
-          ),
-          title: const Text("BS. ABC"),
-          subtitle:
-              const Text("Chỉnh nha"),
-          trailing: Row(
-            mainAxisSize:
-                MainAxisSize.min,
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                    Icons.message),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon:
-                    const Icon(Icons.phone),
+        Container(
+          decoration: BoxDecoration(
+            color: const Color(0xfff8fbff),
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 8,
+                offset: const Offset(0, 3),
               ),
             ],
+          ),
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.blue.shade100,
+              child: const Icon(
+                Icons.person,
+                color: Colors.blue,
+              ),
+            ),
+            title: const Text(
+              "BS. ABC",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: const Text(
+              "Chỉnh nha",
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircleAvatar(
+                  radius: 18,
+                  backgroundColor: Colors.blue.shade100,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    iconSize: 18,
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.message_outlined,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                CircleAvatar(
+                  radius: 18,
+                  backgroundColor: Colors.green.shade100,
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    iconSize: 18,
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.phone,
+                      color: Colors.green,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
     );
   }
 //Hàm phụ
-  Widget _info(
-      String title,
-      String value) {
-    return Padding(
-      padding:
-          const EdgeInsets.symmetric(
-              vertical: 8),
-      child: Row(
-        mainAxisAlignment:
-            MainAxisAlignment
-                .spaceBetween,
-        children: [
-          Text(title),
-          Text(
-            value,
-            style: const TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  Widget _info(String title, String value) {
+  return LayoutBuilder(
+    builder: (context, constraints) {
+      final width = MediaQuery.of(context).size.width;
 
-  Widget _card(
-      String title,
-      String content) {
-    return Container(
-      width: double.infinity,
-      padding:
-          const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius:
-            BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment:
-            CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight:
-                  FontWeight.bold,
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: width * 0.035,
+                ),
+              ),
             ),
+            Text(
+              value,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: width * 0.035,
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+  Widget _card(String title, String content) {
+  return Container(
+    width: double.infinity,
+    padding: const EdgeInsets.all(15),
+    decoration: BoxDecoration(
+      color: const Color(0xfff8fbff),
+      borderRadius: BorderRadius.circular(15),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.05),
+          blurRadius: 10,
+          offset: const Offset(0, 4),
+        ),
+      ],
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.blue,
+            fontSize: 16,
           ),
-          const SizedBox(height: 5),
-          Text(content),
-        ],
-      ),
-    );
-  }
+        ),
+        const SizedBox(height: 8),
+        Text(
+          content,
+          style: const TextStyle(
+            color: Colors.black87,
+          ),
+        ),
+      ],
+    ),
+  );
+}
 
   Widget _treatmentItem(
-      String title,
-      bool done) {
+    String title,
+    bool done,
+  ) {
     return Card(
-      margin:
-          const EdgeInsets.only(bottom: 15),
+      color: const Color(0xfff8fbff),
+      elevation: 2,
+      margin: const EdgeInsets.only(bottom: 15),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: ListTile(
-        leading: const Icon(
+        leading: Icon(
           Icons.event_note,
-          color: Colors.blue,
+          color: done ? Colors.green : Colors.blue,
         ),
-        title: Text(title),
-        subtitle:
-            const Text("BS. ABC"),
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        subtitle: const Text("BS. ABC"),
         trailing: done
             ? const Icon(
                 Icons.check_circle,
-                color: Colors.blue,
+                color: Colors.green,
               )
-            : null,
+            : const Icon(
+                Icons.access_time,
+                color: Colors.orange,
+              ),
       ),
     );
   }

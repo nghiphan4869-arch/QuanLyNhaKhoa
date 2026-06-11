@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nhakhoa/Screen/CaNhan.dart';
+import 'package:nhakhoa/Screen/NhacLichHen.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});
@@ -6,67 +8,91 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment:
-          MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
-          crossAxisAlignment:
-              CrossAxisAlignment.start,
-          children: const [
-            Text(
-              "Xin chào,",
-              style: TextStyle(
-                color: Colors.grey,
-              ),
-            ),
-            SizedBox(height: 5),
-            Text(
-              "Bùi Thị Ngọc Như",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 5),
-            Row(
-              children: [
-                Icon(
-                  Icons.favorite_outline,
-                  color: Colors.blue,
-                  size: 18,
+
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Xin chào,",
+                style: TextStyle(
+                  color: Colors.grey,
                 ),
-                SizedBox(width: 5),
-                Text(
-                  "Chăm sóc nụ cười, nâng tầm tự tin",
-                  style: TextStyle(
-                    color: Colors.grey,
+              ),
+
+              const SizedBox(height: 5),
+
+              const Text(
+                "Bùi Thị Ngọc Như",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 5),
+
+              Row(
+                children: [
+                  Icon(
+                    Icons.favorite_outline,
+                    color: Colors.blue,
+                    size: 18,
                   ),
+
+                  const SizedBox(width: 5),
+
+                  const Expanded(
+                    child: Text(
+                      "Chăm sóc nụ cười, nâng tầm tự tin",
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+
+        const SizedBox(width: 10),
+
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => NhacLich(),),);
+              },
+              icon: const Icon(
+                Icons.notifications_none,
+                size: 26,
+              ),
+            ),
+
+            GestureDetector(
+              onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => CaNhan(),),);
+              },
+              child: const CircleAvatar(
+                radius: 22,
+                backgroundColor: Color(0xffd6df73),
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                  size: 24,
                 ),
-              ],
+              ),
             ),
           ],
         ),
-
-        Row(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.notifications_none,
-              ),
-            ),
-
-            const CircleAvatar(
-              radius: 25,
-              backgroundColor:
-                  Color(0xffd6df73),
-              child: Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
-            )
-          ],
-        )
       ],
     );
   }
